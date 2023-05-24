@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 課題04-3
+// Route::controller(AAAController::class)->group(function() {
+//     Route::get('xxx', 'bbb');
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,4 +24,10 @@ Route::get('/', function () {
 use App\Http\Controllers\Admin\NewsController;
 Route::controller(NewsController::class)->prefix('admin')->group(function() {
     Route::get('news/create', 'add');
+});
+
+use App\Http\Controllers\Admin\ProfileController;
+Route::controller(ProfileController::class)->prefix('admin')->group(function() {
+    Route::get('profile/create', 'add');
+    Route::get('profile/edit', 'edit');
 });
