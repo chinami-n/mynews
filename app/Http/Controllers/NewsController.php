@@ -23,4 +23,10 @@ class NewsController extends Controller
         // また View テンプレートに headline、 posts、という変数を渡している
         return view('news.index', ['headline' => $headline, 'posts' => $posts]);
     }
+    
+    public function detail(Request $request)
+    {
+        $news = News::find($request->id);
+        return view('news.detail', ['news' => $news]);
+    }
 }

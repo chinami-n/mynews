@@ -46,6 +46,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 use App\Http\Controllers\NewsController as PublicNewsController;
 Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
+Route::get('/detail', [PublicNewsController::class, 'detail'])->name('news.detail');
 
 use App\Http\Controllers\ProfileController as PublicProfileController;
 Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
+
+use App\Http\Controllers\CommentController;
+Route::post('/comment/create', [CommentController::class, 'create'])->name('comment.create');

@@ -16,7 +16,7 @@
                                     @endif
                                 </div>
                                 <div class="title p-2">
-                                    <h1>{{ Str::limit($headline->title, 70) }}</h1>
+                                    <h1><a href="{{ route('news.detail', ['id' => $headline->id]) }}">{{ Str::limit($headline->title, 70) }}</a></h1>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
                                 <div class="title">
-                                    {{ Str::limit($post->title, 150) }}
+                                    <a href="{{ route('news.detail', ['id' => $post->id]) }}">{{ Str::limit($post->title, 150) }}</a>
                                 </div>
                                 <div class="body mt-3">
                                     {{ Str::limit($post->body, 1500) }}
